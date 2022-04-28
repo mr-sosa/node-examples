@@ -26,6 +26,16 @@ describe('Login', () => {
 
     cy.get('.btn.btn-primary').click();
     //TODO expect here
+    cy.get('#user-data').should('include.text', 'token');
   });
+  
   //Add new test
+  it('Error Credentials', () => {
+    cy.get('#username').type('isis3710');
+    cy.get('#password').type('contrasena');
+
+    cy.get('.btn.btn-primary').click();
+    //TODO expect here
+    cy.get('#user-data').should('have.text', 'No data');
+  });
 });
