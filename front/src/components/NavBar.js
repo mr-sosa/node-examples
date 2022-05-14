@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 export const NavBar = () => {
+  const { user } = useContext(UserContext);
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
       <a className='navbar-brand' href='#main'>
@@ -31,11 +33,18 @@ export const NavBar = () => {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link' to='/products'>
-              Products
-            </Link>
+            {user && (
+              <Link className='nav-link' to='/products'>
+                Products
+              </Link>
+            )}
           </li>
         </ul>
+      </div>
+      <div className='navbar-nav-controls'>
+        <Link className='nav-link' to='/login'>
+          {user ? `Hello, ${user.name}` : 'Sign In'}
+        </Link>
       </div>
     </nav>
   );

@@ -23,8 +23,8 @@ app.use(express.static(path.join(__dirname, 'front/build')));
 
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
-//app.use('/api/products', checkToken, productRouter); uncomment this line and comment the next one.
-app.use('/api/products', productRouter);
+app.use('/api/products', checkToken, productRouter);// uncomment this line and comment the next one.
+//app.use('/api/products', productRouter);
 
 app.get('*', (req, res) => {
   console.log(path.join(__dirname, 'front/build/index.html'));

@@ -1,0 +1,26 @@
+.container {
+    &.login {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 2rem;
+  
+      pre {
+        margin-top: 2rem;
+        background-color: rgb(233, 233, 233);
+      }
+    }
+  
+    &.form {
+      width: 50%;
+    }
+    h2 {
+      margin-top: 2rem;
+    }
+  
+    .logout-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
